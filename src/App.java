@@ -12,14 +12,15 @@ public class App {
     private static void runMaze(){
         boolean [][] predefinedMaze= {
             { true , true, true, true},
-            { true , true, true, true},
-            { true, false, false, true },
+            { false , true, true, true},
+            { true, true, false, false },
             { true , true, true, true}
             
         };
         Maze maze = new Maze(predefinedMaze);
         System.out.println("Laberinto Cargado");
         maze.printMaze();
+        
         Cell start = new Cell(0, 0);
         Cell end = new Cell(3, 3);
 
