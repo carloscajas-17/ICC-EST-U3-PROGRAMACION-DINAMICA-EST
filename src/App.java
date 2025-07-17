@@ -13,7 +13,7 @@ public class App {
     private static void runMaze() {
         boolean[][] predefinedMaze = {
                 { true, true, true, true },
-                { false, true, true, true }, 
+                { false, true, false, true }, 
                 { true, true, false, false },
                 { true, true, true, true }
         };
@@ -21,8 +21,11 @@ public class App {
         System.out.println("Laberinto cargado: ");
         maze.printMaze();
 
-        Cell start = new Cell(1,2);
+        Cell start = new Cell(0,0);
         Cell end = new Cell(3,3);
+
+        MazeSolver compMazeSolver = new MazeSolverRecursivoCompletoBT();
+        /*
         List<MazeSolver> solvers = Arrays.asList(
             new MazeSolverRecursive(),
             new MazeSolverCompleto()
@@ -47,7 +50,12 @@ public class App {
             System.out.println("No se encontró camino");
         } else {
             System.out.println(path);
-        }
+        }*/
+        MazeResult path3 = compMazeSolver.getPath(maze.getGrid(), start, end);
+        System.out.println("Laberinto Recorrido");
+        maze.paintMaze(path3.getPath());
+        System.out.println("Laberinto con las celdas visitadas");
+        maze.paintMazeVisited(path3.getPath(), start, end);
     }
 
     

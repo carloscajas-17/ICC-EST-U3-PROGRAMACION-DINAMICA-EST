@@ -43,6 +43,7 @@ public class MazeSolverCompleto  implements MazeSolver {
        }
        return false;
 
+       /** */
     }
     
 }

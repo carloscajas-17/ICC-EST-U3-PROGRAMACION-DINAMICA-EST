@@ -65,6 +65,11 @@ Cuando se utiliza únicamente dos direcciones (abajo y derecha), el laberinto no
 Con cuatro direcciones se logra mayor eficiencia y posibilidad de llegar al destino a pesar de obstáculos intermedios.
 
 ---
+### 🟢 Resultado: Laberinto con Cache
+
+![Resultado Laberinto con Cache](CapturadeCache.png)
+---
+
 
 ## 🏁 Instrucciones para Ejecución
 
