@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EjercicioPD {
-    // Fibonacci recursivo usando long
+    
     public long getFibonaci(int n) {
         if (n == 0) {
             return 0;
@@ -13,7 +13,7 @@ public class EjercicioPD {
         }
     }
 
-    // Fibonacci con caching usando Map
+    
     public long getFibonaciPD(int n) {
         Map<Integer, Long> caching = new HashMap<>();
         return getFibonaciPDHelper(n, caching);
@@ -25,12 +25,12 @@ public class EjercicioPD {
         }
 
         if (n <= 1) {
-            caching.put(n, (long)n);  // Guardar resultado base
+            caching.put(n, (long)n);  
             return n;
         }
 
         long resultado = getFibonaciPDHelper(n - 1, caching) + getFibonaciPDHelper(n - 2, caching);
-        caching.put(n, resultado); // Guardar resultado en cache
+        caching.put(n, resultado);
         return resultado;
     }
 }

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -9,31 +10,47 @@ public class App {
 
         
     }
-    private static void runMaze(){
-        boolean [][] predefinedMaze= {
-            { true , true, true, true},
-            { false , true, true, true},
-            { true, true, false, false },
-            { true , true, true, true}
-            
+    private static void runMaze() {
+        boolean[][] predefinedMaze = {
+                { true, true, true, true },
+                { false, true, true, true }, 
+                { true, true, false, false },
+                { true, true, true, true }
         };
         Maze maze = new Maze(predefinedMaze);
-        System.out.println("Laberinto Cargado");
+        System.out.println("Laberinto cargado: ");
         maze.printMaze();
-        
-        Cell start = new Cell(0, 0);
-        Cell end = new Cell(3, 3);
 
-        List< MazeSolver> solvers = Arrays.asList(
-            new MazeSolverRecursive());
+        Cell start = new Cell(1,2);
+        Cell end = new Cell(3,3);
+        List<MazeSolver> solvers = Arrays.asList(
+            new MazeSolverRecursive(),
+            new MazeSolverCompleto()
+            );
+
         MazeSolver solver = solvers.get(0);
         List<Cell> path;
-        path= solver.getPath(maze.getGrid(), start, end);
+        path = solver.getPath(maze.getGrid(), start, end);
 
-        System.out.println("\nCamino encontrado :");
-        System.out.println(path);
+        System.out.println("\nCamino encontrado (2 direcciones)");
+        if (path.isEmpty()) {
+            System.out.println("No se encontró camino");
+        } else {
+            System.out.println(path);
+        }
 
+        solver = solvers.get(1);
+        path = solver.getPath(maze.getGrid(), start, end);
+
+        System.out.println("\nCamino encontrado (4 direcciones)");
+        if (path.isEmpty()) {
+            System.out.println("No se encontró camino");
+        } else {
+            System.out.println(path);
+        }
     }
+
+    
 
 
     /*
